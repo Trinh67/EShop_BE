@@ -34,9 +34,8 @@ namespace MISA.Common.Models
         /// <summary>
         /// Số điện thoại
         /// </summary>
-        [Required("Số điện thoại", "Số điện thoại không được phép để trống!")]
         [Duplicated("Số điện thoại", "Số điện thoại đã tồn tại trên hệ thống!")]
-        [MaxLength("Số điện thoại", 12, "Số điện thoại không dài quá 12 số!")]
+        [MaxLength("Số điện thoại", 15, "Số điện thoại không dài quá 12 số!")]
         public string PhoneNumber { get; set; }
 
         /// <summary>

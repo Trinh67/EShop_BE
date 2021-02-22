@@ -190,7 +190,7 @@ namespace MISA.BLL
                 if (property.IsDefined(typeof(MaxLength), true))
                 {
                     var maxLengthAttribute = property.GetCustomAttributes(typeof(MaxLength), true).FirstOrDefault();
-                    if (maxLengthAttribute != null)
+                    if (maxLengthAttribute != null && propertyValue != null)
                     {
                         var errMsg = (maxLengthAttribute as MaxLength).errorMsg;
                         var length = (maxLengthAttribute as MaxLength).Length;
