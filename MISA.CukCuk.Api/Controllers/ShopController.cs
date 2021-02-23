@@ -17,7 +17,7 @@ namespace MISA.DEMO.API.Controllers
     [ApiController]
     public class ShopController : BaseController<Shop>
     {
-        
+        #region Method
         public ShopController(IShopService _shopService, IDbContext<Shop> dbconnection) : base(_shopService, dbconnection)
         {
         }
@@ -40,5 +40,6 @@ namespace MISA.DEMO.API.Controllers
             //return _db.GetData(sqlCommand, new { ShopCode = ShopCode, ShopName = ShopName, Address = Address, PhoneNumber = PhoneNumber, StatusId = StatusId}, System.Data.CommandType.StoredProcedure);
             return _db.GetData(sqlCommand, new { ShopCode = ShopCode, ShopName = ShopName, Address = Address, PhoneNumber = PhoneNumber, StatusId = StatusId }, System.Data.CommandType.Text);
         }
+        #endregion
     }
 }

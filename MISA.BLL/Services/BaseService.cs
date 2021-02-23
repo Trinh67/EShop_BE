@@ -30,7 +30,7 @@ namespace MISA.BLL
         /// </summary>
         /// <returns>Danh sách bản ghi</returns>
         /// Created By: TXTrinh (20/02/2021)
-        public IEnumerable<MISAEntity> Get()
+        public virtual IEnumerable<MISAEntity> Get()
         {
             var sqlCommand = $"Proc_Get{_tableName}s";
             return dbconnection.GetData(sqlCommand, null, System.Data.CommandType.StoredProcedure);
@@ -42,7 +42,7 @@ namespace MISA.BLL
         /// <param name="Id">Id của bản ghi</param>
         /// <returns>Bản ghi cần tìm</returns>
         /// Created By: TXTrinh (20/02/2021)
-        public IEnumerable<MISAEntity> GetById(Guid Id)
+        public virtual IEnumerable<MISAEntity> GetById(Guid Id)
         {
             var sqlCommand = $"Proc_Get{_tableName}ById";
             return dbconnection.GetData(sqlCommand, parameters: new {Id = Id }, System.Data.CommandType.StoredProcedure);
@@ -55,7 +55,7 @@ namespace MISA.BLL
         /// <param name="number">Số lượng bản ghi cần lấy</param>
         /// <returns>Danh sách bả ghi cần lấy</returns>
         /// Created By: TXTrinh (20/02/2021)
-        public IEnumerable<MISAEntity> GetWithRange(int startPoint, int number)
+        public virtual IEnumerable<MISAEntity> GetWithRange(int startPoint, int number)
         {
             var sqlCommand = $"SELECT * FROM View_{_tableName}  ORDER BY {_tableName}Code ASC LIMIT {startPoint}, {number}";
             return dbconnection.GetData(sqlCommand, null, System.Data.CommandType.Text);
@@ -97,7 +97,7 @@ namespace MISA.BLL
         /// <param name="entity">Bản ghi đã sửa</param>
         /// <returns>Số bản ghi ảnh hưởng</returns>
         /// Created By: TXTrinh (20/02/2021)
-        public ServiceResult Update(MISAEntity entity)
+        public virtual ServiceResult Update(MISAEntity entity)
         {
             var sqlCommand = $"Proc_Update{_tableName}";
             var rowsAffected = dbconnection.ExcuteNonQuery(sqlCommand, entity, System.Data.CommandType.StoredProcedure);
@@ -122,7 +122,7 @@ namespace MISA.BLL
         /// <param name="Id">Id của bản ghi cần xóa</param>
         /// <returns>Số lượng bản ghi ảnh hưởng</returns>
         /// Created By: TXTrinh (20/02/2021)
-        public ServiceResult Delete(Guid Id)
+        public virtual ServiceResult Delete(Guid Id)
         {
             var sqlCommand = $"Proc_Delete{_tableName}";
             var rowsAffected = dbconnection.ExcuteNonQuery(sqlCommand, parameters: new { Id = Id }, System.Data.CommandType.StoredProcedure);
