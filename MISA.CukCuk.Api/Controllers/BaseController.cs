@@ -33,7 +33,7 @@ namespace MISA.CukCuk.Api.Controllers
         /// <returns>Danh sách bản ghi</returns>
         /// CreatedBy: TXTrinh (20/02/2021)
         [HttpGet]
-        public IEnumerable<MISAEnity> Get()
+        public virtual IEnumerable<MISAEnity> Get()
         {
             return _baseService.Get();
         }
@@ -46,7 +46,7 @@ namespace MISA.CukCuk.Api.Controllers
         /// CreatedBy: TXTrinh (20/02/2021)
         [HttpGet]
         [Route("{id}")]
-        public IEnumerable<MISAEnity> GetById(Guid id)
+        public virtual IEnumerable<MISAEnity> GetById(Guid id)
         {
             return _baseService.GetById(id);
         }
@@ -60,7 +60,7 @@ namespace MISA.CukCuk.Api.Controllers
         /// CreatedBy: TXTrinh (20/02/2021)
         [HttpGet]
         [Route("GetWithRange")]
-        public IEnumerable<MISAEnity> GetWithRange(int startPoint, int number)
+        public virtual IEnumerable<MISAEnity> GetWithRange(int startPoint, int number)
         {
             return _baseService.GetWithRange(startPoint, number);
 
@@ -73,7 +73,7 @@ namespace MISA.CukCuk.Api.Controllers
         /// <returns>Kết quả thêm mới</returns>
         /// CreatedBy: TXTrinh (20/02/2021)
         [HttpPost]
-        public IActionResult Insert(MISAEnity enity)
+        public virtual IActionResult Insert(MISAEnity enity)
         {
             var serviceResult = _baseService.Insert(enity);
             return StatusCode(serviceResult.MISACode, serviceResult);
@@ -86,7 +86,7 @@ namespace MISA.CukCuk.Api.Controllers
         /// <returns>Kết quả sửa</returns>
         /// CreatedBy: TXTrinh (20/02/2021)
         [HttpPut]
-        public IActionResult Update(MISAEnity enity)
+        public virtual IActionResult Update(MISAEnity enity)
         {
             var serviceResult = _baseService.Update(enity);
             return StatusCode(serviceResult.MISACode, serviceResult);
@@ -100,7 +100,7 @@ namespace MISA.CukCuk.Api.Controllers
         /// <returns>Kết quả sau khi xóa</returns>
         /// CreatedBy: TXTrinh (20/02/2021)
         [HttpDelete]
-        public IActionResult Delete(Guid id)
+        public virtual IActionResult Delete(Guid id)
         {
             var serviceResult = _baseService.Delete(id);
             return StatusCode(serviceResult.MISACode, serviceResult);
